@@ -2,6 +2,10 @@
 
 require "gosu"
 
+module ZOrder
+	Background, UI = *0..1
+end
+
 require_relative "lib/player"
 require_relative "lib/windows"
 
