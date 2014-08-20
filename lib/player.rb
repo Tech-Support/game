@@ -12,6 +12,9 @@ class Player
 		@image = @sprites[:down]
 	end
 
+	def update
+	end
+
 	def draw
 		@image.draw(@position[:x], @position[:y], ZOrder::Sprites)
 	end

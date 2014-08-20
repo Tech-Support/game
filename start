@@ -9,5 +9,14 @@ end
 require_relative "lib/player"
 require_relative "lib/windows"
 
-start_win = StartWindow.new
-start_win.show
+rows = 14
+columns = 18
+
+width = columns * 32
+height = rows * 33
+
+# start_win = StartWindow.new(width, height)
+# start_win.show
+
+game_win = GameWindow.new(width, height)
+game_win.show

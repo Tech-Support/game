@@ -1,9 +1,8 @@
 class StartWindow < Gosu::Window
-	def initialize
-		@width = 600
-		@height = 400
+	def initialize(width, height)
+		@width = width
+		@height = height
 		super(@width, @height, false)
-		@player = Player.new(self)
 		@font = Gosu::Font.new(self, Gosu::default_font_name, 20)
 	end
 
@@ -15,6 +14,22 @@ class StartWindow < Gosu::Window
 		x = @width / 2.0 - (@font.text_width(text) / 2.0)
 		y = @height / 3.0 - (@font.height / 2.0)
 		@font.draw(text, x, y, ZOrder::UI, 1, 1, 0xffffffff)
+	end
+end
+
+class GameWindow < Gosu::Window
+	def initialize(width, height)
+		@width = width
+		@height = height
+		super(@width, @height, false)
+		@player = Player.new(self)
+	end
+
+	def update
+		@player.update
+	end
+
+	def draw
 		@player.draw
 	end
 
