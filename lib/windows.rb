@@ -74,6 +74,8 @@ class GameWindow < Gosu::Window
 			@player.walk(:up)
 		when Gosu::KbDown
 			@player.walk(:down)
+		when Gosu::KbEscape
+			close
 		end
 	end
 end
