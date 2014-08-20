@@ -15,5 +15,19 @@ class StartWindow < Gosu::Window
 		x = @width / 2.0 - (@font.text_width(text) / 2.0)
 		y = @height / 3.0 - (@font.height / 2.0)
 		@font.draw(text, x, y, ZOrder::UI, 1, 1, 0xffffffff)
+		@player.draw
+	end
+
+	def button_down(id)
+		case id
+		when Gosu::KbRight
+			@player.walk(:right)
+		when Gosu::KbLeft
+			@player.walk(:left)
+		when Gosu::KbUp
+			@player.walk(:up)
+		when Gosu::KbDown
+			@player.walk(:down)
+		end
 	end
 end

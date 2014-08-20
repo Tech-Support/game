@@ -3,7 +3,7 @@
 require "gosu"
 
 module ZOrder
-	Background, UI = *0..1
+	Background, Sprites, UI = *0..2
 end
 
 require_relative "lib/player"
