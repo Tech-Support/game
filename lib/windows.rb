@@ -1,3 +1,9 @@
+class Gosu::Window
+	def needs_cursor?
+		true
+	end
+end
+
 class StartWindow < Gosu::Window
 	def initialize(width, height)
 		@width = width
