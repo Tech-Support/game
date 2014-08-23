@@ -14,7 +14,7 @@ class Map
 			tile.x = x
 			tile.y = y
 			x += Size::TileWidth
-			if x > Size::Width - Size::TileWidth
+			if x > Size::MapWidth - Size::TileWidth
 				tile.y = y
 				y += Size::TileHeight
 				x = 0

@@ -10,7 +10,7 @@ module Size
 	Rows = 14
 	Columns = 18
 
-	TileWidth = 33
+	TileWidth = 32
 	TileHeight = 32
 
 	MapWidth = Columns * TileWidth
