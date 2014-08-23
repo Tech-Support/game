@@ -31,23 +31,24 @@ end
 def create_map(window)
 	m = Map.new(window)
 	
-	sand = Proc.new { Tile.create(window, :sand) }
+	s = Proc.new { Tile.create(window, :sand) }
+	g = Proc.new { Tile.create(window, :grass) }
 
 	# tiles = [
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
-	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[]
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[],
+	# 	s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[], s[]
 	# ]
 	tiles = []
 	m.add_room(window, :first, tiles)
