@@ -74,13 +74,16 @@ class GameWindow < Gosu::Window
 		@height = height
 		super(@width, @height, false)
 		@player = Player.new(self)
+		Map.window = self
+		Map.setup
+		@room = Map[:first]
 	end
 
 	def update
-		@player.update
 	end
 
 	def draw
+		@room.draw
 		@player.draw
 	end
 

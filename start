@@ -10,6 +10,8 @@ require_relative "lib/player"
 require_relative "lib/windows"
 require_relative "lib/tile"
 require_relative "lib/item"
+require_relative "lib/room"
+require_relative "lib/map"
 
 rows = 14
 columns = 18
