@@ -13,10 +13,10 @@ class Map
 		@rooms[name].background.each do |tile|
 			tile.x = x
 			tile.y = y
-			x += 32
-			if x > Size::Width - 32
+			x += Size::TileWidth
+			if x > Size::Width - Size::TileWidth
 				tile.y = y
-				y += 33
+				y += Size::TileHeight
 				x = 0
 			end
 		end
