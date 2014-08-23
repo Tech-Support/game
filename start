@@ -9,6 +9,12 @@ end
 module Size
 	Rows = 14
 	Columns = 18
+
+	TileWidth = 32
+	TileHeight = 33
+
+	Width = Columns * TileWidth
+	Height = Rows * TileHeight
 end
 
 require_relative "lib/player"
@@ -18,8 +24,5 @@ require_relative "lib/item"
 require_relative "lib/room"
 require_relative "lib/map"
 
-width = Size::Columns * 32
-height = Size::Rows * 33
-
-start_win = StartWindow.new(width, height)
+start_win = StartWindow.new(Size::Width, Size::Height)
 start_win.show
