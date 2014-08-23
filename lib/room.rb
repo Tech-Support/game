@@ -1,14 +1,14 @@
 class Room
 
-	attr_accessor :tiles
+	attr_accessor :background, :items
 
-	def initialize(window, tiles)
+	def initialize(window, background)
 		@window = window
-		@tiles = tiles
+		@background = background
 	end
 
 	def draw
-		# it'll be on ZOrder::Background
+		@background.each { |tile| tile.draw }
 	end
 
 end

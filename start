@@ -6,6 +6,11 @@ module ZOrder
 	Background, Sprites, UI = *0..2
 end
 
+module Size
+	Rows = 14
+	Columns = 18
+end
+
 require_relative "lib/player"
 require_relative "lib/windows"
 require_relative "lib/tile"
@@ -13,11 +18,8 @@ require_relative "lib/item"
 require_relative "lib/room"
 require_relative "lib/map"
 
-rows = 14
-columns = 18
-
-width = columns * 32
-height = rows * 33
+width = Size::Columns * 32
+height = Size::Rows * 33
 
 start_win = StartWindow.new(width, height)
 start_win.show

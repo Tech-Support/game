@@ -1,5 +1,7 @@
 class Tile
 
+	attr_accessor :x, :y
+
 	@@avalible_tiles = Dir["images/tiles/*"]
 
 	# sort of a convenience initializer
@@ -15,9 +17,11 @@ class Tile
 	def initialize(window, image_path)
 		@window = window
 		@image = Gosu::Image.new(@window, image_path, false)
+		@x = @y = 0
 	end
 
 	def draw
+		@image.draw(@x, @y, ZOrder::Background)
 	end
 
 end
