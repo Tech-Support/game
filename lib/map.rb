@@ -1,43 +1,55 @@
 class Map
 
-	class << self
+	attr_accessor :rooms
 
-		attr_accessor :rooms
-
-		@@backgrounds = {}
-		@@x = 0
-		@@y = 0
-
-		def window=(window)
-			@@window = window
-		end
-
-		def add_background(name, rooms)
-			@@backgrounds[name] = rooms
-			x = y = 0
-			@@backgrounds[name].each do |tile|
-				tile.x = x
-				x += 32
-				if Size::Columns - 1 > x
-					tile.y = y
-					y += 33
-					x = 0
-				end
-			end
-		end
-
-		def setup
-			add_background(:first, [])
-
-			@@rooms = {
-				first: Room.new(@@window, @@backgrounds[:first])
-			}
-		end
-
-		def [](room)
-			@@rooms[room]
-		end
-
+	def initialize(window)
+		@window = window
+		@rooms = {}
 	end
 
+	def add_room(window, name, background)
+		x = y = 0
+		@rooms[name] = Room.new(window, background)
+		@rooms[name].background.each do |tile|
+			tile.x = x
+			x += 32
+			if Size::Columns - 1 > x
+				tile.y = y
+				y += 33
+				x = 0
+			end
+		end
+	end
+
+	def [](room)
+		@rooms[room]
+	end
+
+end
+
+def create_map(window)
+	m = Map.new(window)
+	
+	# sand = Proc.new { Tile.create(window, "sand") }
+
+
+	# tiles = [
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[],
+	# 	sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[], sand[]
+	# ]
+	# m.add_room(window, :first, tiles)
+
+	m
 end
